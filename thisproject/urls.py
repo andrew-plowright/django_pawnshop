@@ -1,4 +1,4 @@
-"""localpawnshop URL Configuration
+"""thisproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import debug_toolbar
+
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
@@ -30,13 +30,16 @@ urlpatterns = [
     # This will redirect the base URL to /pawncatalog/
     path('', RedirectView.as_view(url='pawncatalog/', permanent=True)),
 
-    # Add support for debug toolbar
-    path('__debug__/', include(debug_toolbar.urls)),
-
     path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 # Use static() to add url mapping to serve static files during development only
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+# Add debug toolbar
+if settings.DEBUG:
+    import debug_toolbar
+
+    # Add support for debug toolbar
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
 
