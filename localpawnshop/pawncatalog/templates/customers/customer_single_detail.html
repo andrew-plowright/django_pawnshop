@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Customer</h1>
+
+Last name: {{ single_customer.last_name }}<br>
+First name: {{ single_customer.first_name }}<br>
+
+Active: {{ single_customer.active }}<br>
+
+ID : {{ single_customer.id }}<br>
+PL : {{ single_customer.pk }}<br>
+
+Andrew's custom context value: {{ andrew_custom_context_value }}
+
+{% if single_customer.active %}
+
+    <p>This customer is <strong>ACTIVE</strong></p>
+
+{% else %}
+    <p>This customer is not active</p>
+{% endif %}
+
+{% endblock %}

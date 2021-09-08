@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Item</h1>
+
+Item: {{ single_item.name }} <br>
+Item type: {{ single_item.type.name }} <br>
+Availability: {{ single_item.is_available }}  <br>
+
+{% for transaction in single_item.transaction_set.all %}
+
+<hr>
+{% include "transactions/transaction_snippet.html" with trans=transaction include_name=False%}
+
+{% endfor %}
+
+{% endblock %}

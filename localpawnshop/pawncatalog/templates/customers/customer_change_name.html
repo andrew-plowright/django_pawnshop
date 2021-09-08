@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h1>Change customer's date</h1>
+
+    Current first name: <b>{{ customer.first_name }}</b> <br>
+    Current last name: <b>{{ customer.last_name }}</b> <br>
+
+    <hr>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

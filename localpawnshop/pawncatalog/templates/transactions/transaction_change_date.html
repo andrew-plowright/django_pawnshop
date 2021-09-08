@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Change transaction date</h1>
+
+    {% include "transactions/transaction_snippet.html" with trans=transaction include_name=True%}
+    <hr>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

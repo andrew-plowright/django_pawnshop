@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Transactions authorized by user </h1>
+User: <b>{{ user.get_username }}</b><br>
+
+{% if authorized_transaction_list %}
+
+{% for transaction in authorized_transaction_list %}
+
+<hr>
+{% include "transactions/transaction_snippet.html" with trans=transaction include_name=True%}
+
+{% endfor %}
+
+{% else %}
+<p>There are no books borrowed.</p>
+{% endif %}
+
+{% endblock %}

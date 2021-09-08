@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Andrew's pawnshop</title>{% endblock %}
+
+{% block content %}
+<h1>Andrew's pawnshop</h1>
+<p>This ain't a public park so <em>buy something or get out</em>!</p>
+
+{% load static %}
+<img src="{% static 'images/pawn_shop_guy.jpg' %}" alt="Yo I'm Mac, the pawn shop guy">
+
+<h2>Shop contents</h2>
+<p>The show has:</p>
+<ul>
+  <li><strong>Active customers:</strong> {{ count_activecustomers }}</li>
+  <li><strong>Transactions:</strong> {{ count_transactions }}</li>
+  <li><strong>Items:</strong> {{ count_items }}</li>
+  <li><strong>Item types:</strong> {{ count_itemtypes }}</li>
+</ul>
+
+You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}
+
+{% endblock %}

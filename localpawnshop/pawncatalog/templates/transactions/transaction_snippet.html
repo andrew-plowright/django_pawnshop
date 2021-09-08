@@ -1,0 +1,14 @@
+
+<div class="{% if trans.transaction_type.name == 'Buy' %}text-success{% elif trans.transaction_type.name == 'Sell' %}text-danger{% else %}{% endif %}">
+    <b>{{ trans.transaction_type.name }}</b>
+</div>
+
+<b>Date</b>: {{ trans.date }} <br>
+
+{% if include_name %}
+<b>Item</b>: <a href="{% url 'item-detail' transaction.item.pk %}">{{ trans.item.name }}</a><br>
+{% endif %}
+
+<b>Customer</b>: <a href="{{ trans.customer.get_absolute_url }}">{{ trans.customer.last_name }}, {{ trans.customer.first_name }}</a><br>
+
+<div class="text-muted">{{ trans.id }}</div>

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Items</h1>
+  {% if items_list %}
+  <ul>
+    {% for item in items_list %}
+      <li>
+        <a href="{{ item.get_absolute_url }}">{{ item.name }}</a> - {{item.type.name}}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no items in the database.</p>
+  {% endif %}
+{% endblock %}
