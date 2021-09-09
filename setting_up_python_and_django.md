@@ -45,8 +45,9 @@ This can then be terminated using `Ctrl+C` (aka: `Ctrl+BREAK`)
 
 8. Now open this address in the browser to see if it worked: `http://127.0.0.1:8000/`
 
-# Creating super users
+# Creating a super user
 
+**NOTE**: this applies to the database. If you're using Postgres, you need to make the Postgres database first
 ```
 py manage.py createsuperuser
 ```
@@ -58,11 +59,15 @@ Temporary passsword: **capybara**
 # Creating normal user
 
 This guys has permissions:
+
 Username: **rodrigo**
+
 Password: **chopchop22**
 
 This guy doesn't:
+
 Username: **gustave**
+
 Password: **chipchip22**
 
 # Extra packages

@@ -14,6 +14,6 @@ urlpatterns = [
     path('items/', views.ItemsListView.as_view(), name='items'),
     path('item/<int:pk>', views.ItemDetailsView.as_view(), name='item-detail'),
     path('transactions/my_authorized', views.TransactionsAuthorizedByUser.as_view(), name='transactions_authorized_by_user'),
-    path('transactions/<uuid:pk>/change_date', views.change_transaction_date, name='transaction_change_date'),
+    path('transactions/<int:pk>/change_date', views.change_transaction_date, name='transaction_change_date'),
 
 ]

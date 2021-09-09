@@ -40,7 +40,6 @@ class Customer(models.Model):
 
 class Transaction(models.Model):
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID")
     transaction_type = models.ForeignKey('TransactionType', on_delete=models.RESTRICT)
     customer = models.ForeignKey('Customer', on_delete=models.RESTRICT)
     item = models.ForeignKey('Item', on_delete=models.CASCADE)
